@@ -1,0 +1,106 @@
+<body class="page-body ">
+    <div class="page-container">
+        <app-main-menu></app-main-menu>
+
+        <div class="main-content">
+
+            <app-header></app-header>
+
+            <div class="row">
+                <div class="col-md-12">
+
+                    <div class="panel panel-primary" data-collapsed="0">
+
+                        <div class="panel-heading">
+                            <div class="panel-title">
+                                modifier le Reglement
+                            </div>
+
+                            <div class="panel-options">
+                                <a href="#" data-rel="collapse"><i class="entypo-down-open"></i></a>
+                                <a href="#" data-rel="reload"><i class="entypo-arrows-ccw"></i></a>
+                            </div>
+                        </div>
+
+                        <div class="panel-body">
+
+                            <form role="form" class="form-horizontal form-groups-bordered" [formGroup]="caisseForm"
+                                (ngSubmit)="addReglement()">
+
+                                <div class="form-group"
+                                    [ngClass]="getTypeReg.touched && getTypeReg.invalid ? 'has-error': ''">
+                                    <label for="field-1" class="col-sm-3 control-label">Type Reglemnt</label>
+
+                                    <div class="col-sm-5">
+                                        <input type="text" class="form-control input-lg" id="field-1"
+                                            placeholder="Type Reglemnt ..." formControlName="typeReglement">
+                                    </div>
+                                    <div *ngIf="getTypeReg.touched && getTypeReg.invalid" class="text-danger">
+                                        <div *ngIf="getTypeReg.errors.required">type reglement required</div>
+                                        <div *ngIf="getTypeReg.errors.minlength">type reglement too short</div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group"
+                                    [ngClass]="getMontantReg.touched && getMontantReg.invalid ? 'has-error': ''">
+                                    <label for="field-1" class="col-sm-3 control-label">Montant Reglemnt</label>
+
+                                    <div class="col-sm-5">
+                                        <input type="text" class="form-control input-lg" id="field-1"
+                                            placeholder="montant Reglemnt ..." formControlName="montantReglement">
+                                    </div>
+                                    <div *ngIf="getMontantReg.touched && getMontantReg.invalid" class="text-danger">
+                                        <div *ngIf="getMontantReg.errors.required">Montant Reglement required</div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group"
+                                    [ngClass]="getMontantReg.touched && getMontantReg.invalid ? 'has-error': ''">
+                                    <label for="field-1" class="col-sm-3 control-label">date Reglemnt</label>
+
+                                    <div class="col-sm-5">
+                                        <input type="text" class="form-control input-lg" id="field-1"
+                                            placeholder="date Reglemnt ..." formControlName="dateReglement">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Etat de Reglement</label>
+
+                                    <div class="col-sm-5">
+                                        <div class="make-switch">
+                                            <input type="checkbox" formControlName="etat">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-sm-offset-3 col-sm-3">
+                                        <button type="submit" class="btn btn-success"
+                                            [disabled]="caisseForm.invalid">Enregistrer</button>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <a [routerLink]="['/caisse']" routerLinkActive="router-link-active"><button
+                                                type="button" class="btn btn-primary">Retourner</button></a>
+                                    </div>
+                                </div>
+
+                            </form>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+            <br />
+            <!-- Footer -->
+            <footer class="main">
+
+
+                &copy; 2021 <strong>GINF3</strong> Gestion Cabinet Medical
+
+            </footer>
+        </div>
+    </div>

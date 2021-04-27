@@ -1,0 +1,85 @@
+<body class="page-body ">
+  <div class="page-container">
+    <app-main-menu></app-main-menu>
+
+    <div class="main-content">
+
+      <app-header></app-header>
+
+      <div class="row">
+        <div class="col-md-12">
+
+          <div class="panel panel-primary" data-collapsed="0">
+
+            <div class="panel-heading">
+              <div class="panel-title">
+               Ajouter une nouvelle ordonnance
+              </div>
+
+              <div class="panel-options">
+                <a href="#" data-rel="collapse"><i class="entypo-down-open"></i></a>
+                <a href="#" data-rel="reload"><i class="entypo-arrows-ccw"></i></a>
+              </div>
+            </div>
+
+            <div class="panel-body">
+
+              <form role="form" class="form-horizontal form-groups-bordered" [formGroup]="caisseForm" (ngSubmit)="addOrdonnance()">
+                
+                <div class="form-group">
+                  <label for="field-1" class="col-sm-3 control-label">numeroOrdonnance</label>
+
+                  <div class="col-sm-5">
+                    <input type="text" class="form-control input-lg" id="field-1" placeholder="numeroOrdonnance ..." formControlName="numeroOrdonnance">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="field-1" class="col-sm-3 control-label">dateOrdonnance</label>
+
+                  <div class="col-sm-5">
+                    <input type="text" class="form-control input-lg" id="field-1" placeholder="dateOrdonnance ..." formControlName="dateOrdonnance">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">typeOrdonnance</label>
+                  
+                  <div class="col-sm-5">
+                    <div class="make-switch">
+                        <input type="checkbox"  formControlName="typeOrdonnance">
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="form-group">
+                  <div class="col-sm-offset-3 col-sm-2">
+                    <button type="submit" class="btn btn-success" >Enregistrer</button>
+                  </div><div class="col-sm-2">
+                    <button type="reset" class="btn btn-default">reset</button>
+                  </div>
+                  <div class="col-sm-3">
+                    <a [routerLink]="['/ordonnance']" routerLinkActive="router-link-active" ><button type="button" class="btn btn-primary">Retourner</button></a>
+                  </div>
+                </div>
+
+              </form>
+
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+      <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+			<br />
+			<!-- Footer -->
+			<footer class="main">
+
+
+				&copy; 2021 <strong>GINF3</strong> Gestion Cabinet Medical
+
+			</footer>
+    </div>
+  </div>
+ 

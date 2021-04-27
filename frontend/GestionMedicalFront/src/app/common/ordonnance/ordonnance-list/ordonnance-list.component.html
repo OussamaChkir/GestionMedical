@@ -1,0 +1,177 @@
+<body class="page-body ">
+
+	<div class="page-container">
+		<!-- add class "sidebar-collapsed" to close sidebar by default, "chat-visible" to make chat appear always -->
+		<!--main menu component-->
+
+		<app-main-menu></app-main-menu>
+
+		<div class="main-content">
+
+			<app-header></app-header>
+
+			<hr />
+			<h3>Liste des Ordonnances</h3>
+			<div class="row">
+				<div class="col-md-6 col-sm-8">
+					<a [routerLink]="['/ajoutOrdonnance']" routerLinkActive="router-link-active"
+						class="btn btn-primary"><i class="entypo-plus"></i>Add Row</a>
+				</div>
+				<div class="col-md-6 col-sm-8">
+					<div class="form-group">
+						<label class="col-sm-3 control-label">Date Picker (popup)</label>
+
+						<div class="col-sm-6">
+							<div class="input-group">
+								<input type="text" class="form-control datepicker" >
+
+								<div class="input-group-addon">
+									<a href="#"><i class="entypo-calendar"></i></a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<table class="table table-bordered table-striped datatable" id="table-2">
+				<thead>
+					<tr>
+						<th>numeroOrdonnance</th>
+						<th>dateOrdonnance</th>
+						<th>typeOrdonnance</th>
+						<th>Actions</th>
+					</tr>
+				</thead>
+
+				<tbody>
+					<tr *ngFor="let ordonnance of ListOrdonnance">
+						<td>{{ordonnance.numeroOrdonnance}}</td>
+						<td>{{ordonnance.dateOrdonnance}}</td>
+						<td>{{ordonnance.typeOrdonnance}}</td>
+						<td>
+							<a class="btn btn-default btn-sm btn-icon icon-left">
+								<i class="entypo-pencil"></i>
+								Edit
+							</a>
+
+							<a href="#" (click)="delete(ordonnance.numeroOrdonnance)"
+								class="btn btn-danger btn-sm btn-icon icon-left">
+								<i class="entypo-cancel"></i>
+								Delete
+							</a>
+
+							<a href="#" class="btn btn-info btn-sm btn-icon icon-left">
+								<i class="entypo-info"></i>
+								Profile
+							</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<div class="row">
+				<div class="col-sm-8">
+
+					<div class="panel panel-primary" id="charts_env">
+
+						<div class="panel-heading">
+							<div class="panel-title">Site Stats</div>
+
+							<div class="panel-options">
+								<ul class="nav nav-tabs">
+									<li class=""><a href="#area-chart" data-toggle="tab">Area Chart</a></li>
+									<li class="active"><a href="#line-chart" data-toggle="tab">Line Charts</a></li>
+									<li class=""><a href="#pie-chart" data-toggle="tab">Pie Chart</a></li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="panel-body">
+
+							<div class="tab-content">
+
+								<div class="tab-pane" id="area-chart">
+									<div id="area-chart-demo" class="morrischart" style="height: 300px"></div>
+								</div>
+
+								<div class="tab-pane active" id="line-chart">
+									<div id="line-chart-demo" class="morrischart" style="height: 300px"></div>
+								</div>
+
+								<div class="tab-pane" id="pie-chart">
+									<div id="donut-chart-demo" class="morrischart" style="height: 300px;"></div>
+								</div>
+
+							</div>
+
+						</div>
+
+						<table class="table table-bordered table-responsive">
+
+							<thead>
+								<tr>
+									<th width="50%" class="col-padding-1">
+										<div class="pull-left">
+											<div class="h4 no-margin">Pageviews</div>
+											<small>54,127</small>
+										</div>
+										<span class="pull-right pageviews">4,3,5,4,5,6,5</span>
+
+									</th>
+									<th width="50%" class="col-padding-1">
+										<div class="pull-left">
+											<div class="h4 no-margin">Unique Visitors</div>
+											<small>25,127</small>
+										</div>
+										<span class="pull-right uniquevisitors">2,3,5,4,3,4,5</span>
+									</th>
+								</tr>
+							</thead>
+
+						</table>
+
+					</div>
+
+				</div>
+
+				<div class="col-sm-4">
+
+					<div class="panel panel-primary">
+						<div class="panel-heading">
+							<div class="panel-title">
+								<h4>
+									Real Time Stats
+									<br />
+									<small>current server uptime</small>
+								</h4>
+							</div>
+
+							<div class="panel-options">
+								<a href="#sample-modal" data-toggle="modal" data-target="#sample-modal-dialog-1"
+									class="bg"><i class="entypo-cog"></i></a>
+								<a href="#" data-rel="collapse"><i class="entypo-down-open"></i></a>
+								<a href="#" data-rel="reload"><i class="entypo-arrows-ccw"></i></a>
+								<a href="#" data-rel="close"><i class="entypo-cancel"></i></a>
+							</div>
+						</div>
+
+						<div class="panel-body no-padding">
+							<div id="rickshaw-chart-demo">
+								<div id="rickshaw-legend"></div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+			<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+			<br />
+			<!-- Footer -->
+			<footer class="main">
+
+
+				&copy; 2021 <strong>GINF3</strong> Gestion Cabinet Medical
+
+			</footer>
+		</div>
+	</div>
+	<script src="assets/js/bootstrap-datepicker.js"></script>

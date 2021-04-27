@@ -1,0 +1,53 @@
+<div>
+  <h3 class="card-header text-center "> <b>La Liste Des Patients  </b></h3>
+</div>
+<br>
+<div class="card-body">
+  <div class="chart-area">
+    <table class="table table-bordered table-responsive-md table-striped text-center" >
+       <thead >
+         
+        
+          <th class="text-center"><b>Nom</b></th>
+         <th class="text-center"><b>Prenom</b></th>
+         <th class="text-center"> <b>Profession</b></th>
+         <th class="text-center"><b>Sexe</b></th>
+         <th class="text-center"><b>Cin</b></th>
+        <th class="text-center"><b>Date de naissance</b></th>
+         <th class="text-center"><b>Adresse</b></th>
+        
+         
+        
+       
+       </thead>
+       <tbody>
+        <tr *ngFor="let patient of patientsList">
+     
+          
+          <td>{{patient.nomPatient}}</td>
+          <td>{{patient.prenomPatient}}</td>
+          <td>{{patient.professionPatient}}</td>
+          <td>{{patient.sexePatient}}</td>
+          <td>{{patient.cinPatient}}</td>
+          <td>{{patient.dateNaissancePatient}}</td>
+          <td>{{patient.adressePatient}}</td>
+          
+          
+
+
+          <td>
+            
+             <button class="btn btn-warning mr-2" title="Modifier Patient" [routerLink]="['patient-modifier',patient.numeroPatient]" ><i class="fa fa-edit" ></i>Update</button>
+             <button class="delete" (click)="delete(patient)" title="delete Patient"  class="btn btn-danger" ><i  ></i>Delete</button>
+
+
+          </td>
+          
+       </tr>
+      </tbody>
+     
+      
+   </table>
+   <button class="btn btn-warning mr-2" title="Ajouter Patient" [routerLink]="['patient-ajout']" routerLinkActive="router-link-active" class="btn btn-primary"><i class="fa fa-ad" ></i> New Add </button>
+  </div>
+</div>

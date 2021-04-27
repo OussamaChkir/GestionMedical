@@ -1,0 +1,50 @@
+<div class="container-fluid">
+   
+  <!-- Page Heading -->
+  <div class="d-sm-flex align-items-center justify-content-between mb-4">
+      <h1 class="h3 mb-0 text-gray-800">Gestion CNAM</h1>
+     
+  </div>
+  <div class="row">
+   
+    <!-- Area Chart -->
+    <div class="col">
+        <div class="card shadow mb-4">
+            <!-- Card Header - Dropdown -->
+            <div
+                class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                <h6 class="m-0 font-weight-bold text-primary ">Liste des produits</h6>
+                <input  type="text" class="form-control col-3" >
+                
+            </div>
+            <div class="card-body">
+              <div class="chart-area">
+                 <table class="table table-bordered table-responsive-md table-striped text-center">
+                     <thead>
+                         <th class="text-center"><b># Numero </b></th>
+                         <th class="text-center"><b>Etat</b></th>
+                         <th class="text-center"><b>Date Validite</b></th>
+                         <th class="text-center"><b>Type</b></th>
+                         <th class="text-center"><b>Action</b></th>
+                     </thead>
+                     <tbody>
+                      <tr *ngFor="let cnam of cnamList">
+                          <td>{{cnam.idcnam}}</td>
+                          <td>{{cnam.etatcnam}}</td>
+                          <td>{{cnam.datevaliditecnam}}</td>
+                          <td>{{cnam.typecnam}}</td>
+
+                          <td>
+                        
+                             <button class="btn btn-info mr-2" [routerLink]="['/cnam-modif',cnam.idcnam]"><i class="entypo-pencil"></i>Update</button>
+                             <button class="btn btn-danger" (click)="delete(cnam)" ><i class="entypo-cancel" ></i>Delete</button>
+                           
+                          </td>
+                      </tr>
+                  </tbody>
+              </table>
+              <button class="btn btn-primary mr-2" [routerLink]="['cnam-ajout']"><i class="entypo-plus"></i>New Add</button>
+          </div>
+    </div>
+  </div>
+</div>

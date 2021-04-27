@@ -1,0 +1,126 @@
+
+
+<body class="page-body  " data-url="http://neon.dev">
+
+	<div class="page-container">
+		<!-- add class "sidebar-collapsed" to close sidebar by default, "chat-visible" to make chat appear always -->
+		<!--main menu component-->
+		
+	  	<app-main-menu></app-main-menu>
+
+		<div class="main-content">
+
+  
+      <app-header></app-header>
+		
+			<div>
+        <div class="card shadow">
+          <!-- Card Header - Dropdown -->
+            <div class="row">
+             <div class="col">
+               <!-- [routerLink]="['/patient-list'] -->
+                 <button class="btn btn-primary my-3" [routerLink]="['']">Back</button>
+                 <hr>
+                 <div>
+                  <h3 class="card-header text-center "> Formulaire D'ajouter Patient </h3>
+                 </div>
+             </div>
+            </div>
+       
+       
+            <form [formGroup]="patientForm" (ngSubmit)="addPatient()">
+                <div class="form-group">
+                  <label for="cin"><b>CIN :</b></label>
+                  <input type="text" name="cin" id="cin" class="form-control" formControlName="cin"/>
+                    <div *ngIf="mycin.touched && mycin.invalid" class="text-danger">
+                      <p *ngIf="mycin.errors.required">CIN is required</p>
+                      <p *ngIf="mycin.errors.minlength">Il faut que le CIN contient 8 chiffres</p>
+                      <p *ngIf="mycin.errors.pattern">Invalid CIN</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                  <label for="nom"><b>Nom :</b></label>
+                  <input type="text" name="nom" id="nom" class="form-control" formControlName="nom"/>
+                  <div *ngIf="myname.touched && myname.invalid" class="text-danger">
+                    <p *ngIf="myname.errors.required">Nom is required</p>
+                    <p *ngIf="myname.errors.minlength">Nom must contains 3 chars</p>
+                    <p *ngIf="myname.errors.pattern">Invalid Nom</p>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="prenom"><b>Prenom :</b></label>
+                  <input type="text" name="prenom" id="prenom" class="form-control" formControlName="prenom"/>
+                  <div *ngIf="myprenom.touched && myprenom.invalid" class="text-danger">
+                    <p *ngIf="myprenom.errors.required">Prenom is required</p>
+                    <p *ngIf="myprenom.errors.minlength">Prenom must contains 3 chars</p>
+                    <p *ngIf="myprenom.errors.pattern">Invalid Prenom</p>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="datenais"><b>Date Naissance :</b></label>
+                  <input type="date" name="datenais" class="form-control" id="datenais" formControlName="datenais"/>
+                  <div *ngIf="mydatenais.touched && mydatenais.invalid" class="text-danger">
+                    <p *ngIf="mydatenais.errors.required">Date naissance is required</p>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="adresse"><b>Adresse :</b></label>
+                  <input type="text" name="adresse" id="adresse" class="form-control" formControlName="adresse"/>
+                  <div *ngIf="myadresse.touched && myadresse.invalid" class="text-danger">
+                    <p *ngIf="myadresse.errors.required">Adresse is required</p>
+                    <p *ngIf="myadresse.errors.minlength">Adresse must contains 5 chracters</p>
+                    <p *ngIf="myadresse.errors.pattern">Invalid Adresse</p>
+                  </div>
+                </div>
+              
+                <div class="form-group">
+                    <label for="sexe"><b>Sexe :</b></label>
+                      <select    matNativeControl class="form-control" id="sexe"  required formControlName="sexe">
+                        <option  *ngFor="let d of sex"  [value]="d" >
+                          {{d}}
+                        </option>
+                      <div *ngIf="mysexe.touched && mysexe.invalid" class="text-danger">
+                        <p *ngIf="mysexe.errors.required">Profrssion is required</p>
+                      </div>
+                      </select>
+                </div>
+                  <div class="form-group">
+                  <label for="prof"><b>Profession :</b></label>
+                    <input type="text" name="prof" class="form-control" id="prof" formControlName="prof"/>
+                    <div *ngIf="myprof.touched && myprof.invalid" class="text-danger">
+                          <p *ngIf="myadresse.errors.required">Profrssion is required</p>
+                          <p *ngIf="myadresse.errors.pattern">Invalid Profession</p>
+                    </div>
+                </div>
+                <!--<div class="form-group">
+                  <label for="code_apci">Code APCI :</label>
+                  <input type="text" name="code_apci" class="form-control" id="code_apci" formControlName="code_apci"/>
+                  <div *ngIf="mycodeapci.touched && mycodeapci.invalid" class="text-danger">
+                    <p *ngIf="mycodeapci.errors.required">Code APCI is required</p>
+                    <p *ngIf="mycodeapci.errors.minlength">Code APCI must contains 3 Numbers</p>
+                    <p *ngIf="mycodeapci.errors.pattern">Invalid Code APCI</p>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="cnam">CNAM :</label>
+                  <input type="text" name="cnam" class="form-control" id="cnam" formControlName="cnam"/>
+                  <div *ngIf="mycnam.touched && mycnam.invalid" class="text-danger">
+                    <p *ngIf="mycnam.errors.required">CNAM is required</p>
+                    <p *ngIf="mycnam.errors.minlength">CNAM must contains 5 chracters</p>
+                    <p *ngIf="mycnam.errors.pattern">Invalid CNAM</p>
+                  </div>
+                </div>-->
+                <div>
+                  <button type="submit" [disabled]="patientForm.invalid" class="btn btn-primary">Save</button>
+                </div>
+              
+              
+       
+            </form>
+         </div>
+			
+			
+	  	</div>
+    </div>
+	</div>
+</body>

@@ -1,0 +1,49 @@
+<body class="page-body  " data-url="http://neon.dev">
+	<div class="page-container">
+		<!-- add class "sidebar-collapsed" to close sidebar by default, "chat-visible" to make chat appear always -->
+		<!--main menu component-->
+		<app-main-menu></app-main-menu>
+		<div class="main-content">
+			<app-header></app-header>
+            <div class="card shadow">
+                <div class="row">
+                    <div class="col">
+                        <button class="btn btn-warning text-dark" [routerLink]="['']">Back</button>
+                        <hr>
+                        <div> 
+                            <h3 class="card-header text-center">Update CNAM</h3>
+                        </div>
+                      
+                    </div>
+                </div>
+                <form [formGroup]="cnamForm" (ngSubmit)="updateCnam()" class="form-horizontal form-groups-bordered">
+                    <div class="col-sm-5">
+                        <div class="form-group">
+                            <label><b>Date Validite CNAM</b></label>
+                            <input type="Date"  class="form-control" formControlName="datevaliditecnam">
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <label><b>Type CNAM</b></label>					
+                            <select name="typecnam" class="form-control" formControlName="typecnam">
+                                <option *ngFor="let d of typecnam" [value]="d">{{d}}</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label><b>Etat CNAM</b></label>
+                            <div>
+                                <label class="radio-inline"><input type="radio" name="etatcnam" id="etatcnam" value="true" checked="" formControlName="etatcnam"/>
+                                True</label>
+                                <label class="radio-inline"><input type="radio" name="etatcnam" id="etatcnam" value="false" formControlName="etatcnam"/>
+                                False</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" [disabled]="cnamForm.invalid" class="btn btn-success">Add</button>
+                        </div>
+                    </div>
+                </form>
+            </div>           
+		</div>
+	</div>		
+</body>	
